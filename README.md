@@ -6,10 +6,13 @@ Small music player build with Electron.
 
 	`git clone https://github.com/PlugaruT/electron-music-player.git`
 2. Go to application folder
+
 	`cd electron-music-player`
 3. Install dependencies
+
 	`npm install`
 4. Run the application
+
 	`npm start`
 
 ##Screenshot
