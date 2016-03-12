@@ -30,6 +30,13 @@
 		<div class="col s6 m6">
 			<div class="eq">
 				<div class="controls">
+					<label id="label-slider">Speed</label>
+					<button class="waves-effect waves-light btn btn-small" id="reset-speed">
+						<i class="small material-icons">restore</i>
+					</button>
+					<input id="speed" type="range" min="0.5" max="1.5" value="1" step="0.01" oninput="setPlaySpeed();"></input>
+				</div>
+				<div class="controls">
 					<label id="label-slider">Low Gain</label>
 					<button class="waves-effect waves-light btn btn-small" id="reset-low-gain">
 						<i class="small material-icons">restore</i>
@@ -54,14 +61,6 @@
 		</div>
 		<div class="col s6 m6">
 			<div class="eq">
-				<div class="controls">
-					<label id="label-slider">Speed</label>
-					<button class="waves-effect waves-light btn btn-small" id="reset-speed">
-						<i class="small material-icons">restore</i>
-					</button>
-					<input id="speed" type="range" min="0.5" max="1.5" value="1" step="0.01" oninput="setPlaySpeed();"></input>
-				</div>
-				<!-- <div class="eq">
 					<p>
 						<input type="checkbox" id="wahwah" />
 						<label for="wahwah">Wah-Wah</label>
@@ -74,7 +73,6 @@
 						<input type="checkbox" id="tremolo" />
 						<label for="tremolo">Tremolo</label>
 					</p>
-				</div> -->
 			</div>
 		</div>
 	</div>
@@ -85,7 +83,12 @@
 			</div>
 		</div>
 	</footer>
-	<script src="js/hammer.min.js"></script>
+	<script>
+		var Hammer = require('./js/hammer.min.js');
+	</script>
+	<script>
+		var Tuna =require('./js/tuna.js');	
+	</script>
 	<script src="js/jquery-2.2.1.min.js"></script>
 	<script src="js/jquery-1.12.1.min.js"></script>
 	<script src="https://cdn.rawgit.com/mbostock/d3/master/d3.min.js"></script>

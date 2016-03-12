@@ -8,5 +8,8 @@
   },
   "repository": {
     "type": "git"
+  },
+    "devDependencies": {
+    "electron-prebuilt": "^0.36.0"
   }
 }
