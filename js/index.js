@@ -36,6 +36,35 @@ var tremolo = new tuna.Tremolo({
     feedback: 0.9, //0 to 1+
     bypass: 0
 });
+var chorus = new tuna.Chorus({
+    rate: 7, //0.01 to 8+
+    feedback: 0.2, //0 to 1+
+    delay: 0.45, //0 to 1
+    bypass: 0 //the value 1 starts the effect as bypassed, 0 or 1
+});
+var overdrive = new tuna.Overdrive({
+    outputGain: 0.5, //0 to 1+
+    drive: 0.1, //0 to 1
+    curveAmount: 0, //0 to 1
+    algorithmIndex: 4, //0 to 5, selects one of our drive algorithms
+    bypass: 0
+});
+var bitcrusher = new tuna.Bitcrusher({
+    bits: 4, //1 to 16
+    normfreq: 0.1, //0 to 1
+    bufferSize: 4096 //256 to 16384
+});
+var glitch = new tuna.PingPongDelay({
+    wetLevel: 1, //0 to 1
+    feedback: 0.9, //0 to 1
+    delayTimeLeft: 100, //1 to 10000 (milliseconds)
+    delayTimeRight: 100 //1 to 10000 (milliseconds)
+});
+var moog = new tuna.MoogFilter({
+    cutoff: 0.065,    //0 to 1
+    resonance: 3.5,   //0 to 4
+    bufferSize: 4096  //256 to 16384
+});
 //play with wahwah effect
 function createWahWah() {
     osc = context.createOscillator();
@@ -64,9 +93,50 @@ function createTremolo() {
     osc.start(0);
 }
 
+function createChorus() {
+    osc = context.createOscillator();
+    osc.type = 'triangle'; // triangle wave
+    osc.frequency.value = freq
+    osc.connect(chorus.input);
+    chorus.connect(context.destination);
+    osc.start(0);
+}
+
+function createOverdrive() {
+    osc = context.createOscillator();
+    osc.type = 'triangle'; // triangle wave
+    osc.frequency.value = freq
+    osc.connect(overdrive.input);
+    overdrive.connect(context.destination);
+    osc.start(0);
+}
+
+function createBitcrusher() {
+    osc = context.createOscillator();
+    osc.type = 'triangle'; // triangle wave
+    osc.frequency.value = freq
+    osc.connect(bitcrusher.input);
+    bitcrusher.connect(context.destination);
+    osc.start(0);
+}
+function createGlitch() {
+    osc = context.createOscillator();
+    osc.type = 'triangle'; // triangle wave
+    osc.frequency.value = freq
+    osc.connect(glitch.input);
+    glitch.connect(context.destination);
+    osc.start(0);
+}
+function createMog() {
+    osc = context.createOscillator();
+    osc.type = 'triangle'; // triangle wave
+    osc.frequency.value = freq
+    osc.connect(moog.input);
+    moog.connect(context.destination);
+    osc.start(0);
+}
+
 function stopWave() {
-    console.log(osc);
-    osc.disconnect();
     osc.stop(0);
 }
 
@@ -182,15 +252,37 @@ $(document).ready(function() {
         $('#high-gain').val(50);
         changeValue(50, 'highGain');
     });
+    $('input:checkbox').click(function() {
+        var $inputs = $('input:checkbox')
+        if ($(this).is(':checked')) {
+            $inputs.not(this).prop('disabled', true);
+        } else {
+            $inputs.prop('disabled', false);
+        }
+    })
     $('#wahwah').change(function() {
-       console.log(wahwah);
         this.checked ? createWahWah() : stopWave();
     });
     $('#phaser').change(function() {
         this.checked ? createPhaser() : stopWave();
-    });  
+    });
     $('#tremolo').change(function() {
         this.checked ? createTremolo() : stopWave();
+    });
+    $('#chorus').change(function() {
+        this.checked ? createChorus() : stopWave();
+    });
+    $('#overdrive').change(function() {
+        this.checked ? createOverdrive() : stopWave();
+    });
+    $('#bitcrusher').change(function() {
+        this.checked ? createBitcrusher() : stopWave();
+    }); 
+    $('#glitch').change(function() {
+        this.checked ? createGlitch() : stopWave();
+    });
+    $('#moog').change(function() {
+        this.checked ? createMog() : stopWave();
     });
     renderChart();
 });
