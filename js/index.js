@@ -7,8 +7,9 @@ var lGain = context.createGain();
 var mGain = context.createGain();
 var hGain = context.createGain();
 var frequencyData = new Uint8Array(200);
-var svgHeight = '250';
-var svgWidth = '1200';
+var svgHeight = '235';
+var svgWidth = '956'
+console.log(svgWidth);
 var barPadding = '0';
 var freq = 55 * Math.pow(1.059463, 11);
 var osc; //= context.createOscillator();

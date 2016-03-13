@@ -6,15 +6,9 @@ html, body {
 footer {
     font-size: initial;
 }
-.eq {
-    margin: 20px;
-}
 #player {
     width: 100%;
     vertical-align: middle;
-}
-.controls {
-    margin: 5px;
 }
 #label-slider {
     display: inline-block;
@@ -23,10 +17,10 @@ footer {
 }
 #equalizer-container{
 	margin-top: 10px;
-    height: 250px;
+    height: 235px;
 }
 #track-title{
 	text-align: center;
 	font-style: oblique;
-	font-size: larger;
+	font-size: initial;
 }

@@ -16,7 +16,7 @@ function createWindow() {
         width: 800,
         height: 600,
         icon: 'img/icon.png',
-        maxWidth: 1200
+        maxWidth: 956
     });
 
     // and load the index.html of the app.
