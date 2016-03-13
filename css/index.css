@@ -1,8 +1,10 @@
 html, body {
-    width: 1190px;
-    font-size: 20px;
-    font-family: GillSans, Calibri, Trebuchet, sans-serif;
     background: #EEE;
+    font-family: GillSans, Calibri, Trebuchet, sans-serif;
+    font-size: larger;
+}
+footer {
+    font-size: initial;
 }
 .eq {
     margin: 20px;
@@ -21,6 +23,7 @@ html, body {
 }
 #equalizer-container{
 	margin-top: 10px;
+    height: 250px;
 }
 #track-title{
 	text-align: center;

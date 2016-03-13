@@ -1,4 +1,4 @@
-var context = new(window.AudioContext || window.webkitAudioContext)();
+var context = new AudioContext();
 var mediaElement = document.getElementById('player');
 var sourceNode = context.createMediaElementSource(mediaElement);
 var analyser = context.createAnalyser();
@@ -9,7 +9,7 @@ var hGain = context.createGain();
 var frequencyData = new Uint8Array(200);
 var svgHeight = '250';
 var svgWidth = '1200';
-var barPadding = '1';
+var barPadding = '0';
 var freq = 55 * Math.pow(1.059463, 11);
 var osc; //= context.createOscillator();
 var wahwah = new tuna.WahWah({

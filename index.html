@@ -4,18 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Electron Music Player</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
     <link rel="stylesheet" href="css/materialize.min.css" />
     <link rel="stylesheet" href="css/index.css" />
 </head>
 
 <body>
-    <div id="equalizer-container" class="margin-top: 10px;"></div>
+    <div id="equalizer-container"></div>
     <div class="row">
         <div class="col s3 m3" style="padding-left: 50px; padding-top: 23px;">
             <input id="fileInput" type="file" style="display:none;" onchange="readSingleFile(event);" />
             <button class="btn btn-danger btn-md" id="open-file" style="vertical-align: middle">
-                Open File
+                Open
             </button>
         </div>
         <div class="col s9 m9">
@@ -51,7 +51,7 @@
                     <input id="mid-gain" type="range" value="50" step="1" min="0" max="100" oninput="changeValue(this.value, 'midGain');"></input>
                 </div>
                 <div class="controls">
-                    <label id="label-slider">High Gain</label>
+                    <label id="label-slider"><p>High Gain</p></label>
                     <button class="waves-effect waves-light btn btn-small" id="reset-high-gain">
                         <i class="small material-icons">restore</i>
                     </button>
@@ -96,13 +96,16 @@
             </p>
         </div>
     </div>
-    <footer>
-        <div class="footer-copyright">
-            <div class="container text-center">
-                <i>Electron Music Player | Laboratory Work #2 on Multimedia Systems | Plugaru Tudor</i>
+   <footer class="page-footer">
+            <div class="footer-copyright">
+                <div class="container">
+                    © Plugaru Tudor
+                    <a class="grey-text text-lighten-4 right" href="#!">
+                        Laboratory Work #2, Multimedia Systems
+                    </a>
+                </div>
             </div>
-        </div>
-    </footer>
+        </footer>
     <script>
     var Hammer = require('./js/hammer.min.js');
     </script>
